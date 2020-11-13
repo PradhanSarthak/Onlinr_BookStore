@@ -17,20 +17,20 @@ namespace API
     {
         public static async Task Main(string[] args)
         {
-          var host=  CreateHostBuilder(args).Build();
+            var host = CreateHostBuilder(args).Build();
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
-                var logarFactory = services.GetRequiredService<ILoggerFactory>();
+                var loggerFactory = services.GetRequiredService<ILoggerFactory>();
                 try
                 {
                     var context = services.GetRequiredService<StoreContext>();
                     await context.Database.MigrateAsync();
-                    await StoreContextSeed.SeedAsync(context, logarFactory);
+                    await StoreContextSeed.SeedAsync(context, loggerFactory);
                 }
                 catch (Exception ex)
                 {
-                    var logger = logarFactory.CreateLogger<Program>();
+                    var logger = loggerFactory.CreateLogger<Program>();
                     logger.LogError(ex, "An error occured during migration");
                 }
             }
