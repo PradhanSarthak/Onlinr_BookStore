@@ -33,11 +33,22 @@
     <None Remove="ClientApp\src\app\models\product.ts" />
     <None Remove="ClientApp\src\app\models\productType.ts" />
     <None Remove="ClientApp\src\app\models\shopParams.ts" />
+    <None Remove="ClientApp\src\app\shared\model\busket.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Remove="ClientApp\src\app\app-routing.module.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\app.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\busket\basket-routing.module.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\busket\busket.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\busket\busket.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\busket\busket.module.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\busket\busket.service.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\checkout\checkout-routing.module.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\checkout\checkout.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\checkout\checkout.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\checkout\checkout.module.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\checkout\checkout.service.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\components\pager\pager.component.spec.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\components\pager\pager.component.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\components\paging-header\paging-header.component.spec.ts" />
@@ -47,6 +58,8 @@
     <TypeScriptCompile Remove="ClientApp\src\app\core\section-header\section-header.component.spec.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\core\section-header\section-header.component.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\core\services\busy.service.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\shared\components\order-totals\order-totals.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\shared\components\order-totals\order-totals.component.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\shared\shared.module.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\shop\product-details\product-details.component.spec.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\shop\product-details\product-details.component.ts" />
@@ -63,6 +76,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ClientApp\src\app\busket\NewFolder\" />
     <Folder Include="ClientApp\src\app\core\NewFolder\" />
   </ItemGroup>
 
