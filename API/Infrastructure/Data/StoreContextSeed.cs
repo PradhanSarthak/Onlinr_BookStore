@@ -1,4 +1,5 @@
-﻿using API.Data;
+﻿using API.Core.Entity.OrderAggrement;
+using API.Data;
 using API.Entity;
 using Microsoft.Extensions.Logging;
 
@@ -57,6 +58,21 @@ namespace API.Infrastructure.Data
                     foreach (var item in products)
                     {
                         context.Products.Add(item);
+                    }
+
+                    await context.SaveChangesAsync();
+                }
+
+                if (!context.DeliveryMethods.Any())
+                {
+                    var dmData =
+                        File.ReadAllText("../Infrastructure/Data/SeedData/delivery.json");
+
+                    var methods = JsonSerializer.Deserialize<List<DeliveryMethod>>(dmData);
+
+                    foreach (var item in methods)
+                    {
+                        context.DeliveryMethods.Add(item);
                     }
 
                     await context.SaveChangesAsync();
