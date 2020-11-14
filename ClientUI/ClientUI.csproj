@@ -44,6 +44,8 @@
     <TypeScriptCompile Remove="ClientApp\src\app\components\paging-header\paging-header.component.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\core\core.module.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\shared\shared.module.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\shop\product-details\product-details.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\shop\product-details\product-details.component.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\shop\shop-routing.module.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\shop\shop\shop.component.spec.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\shop\shop\shop.component.ts" />
@@ -54,6 +56,10 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\models\pagination.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\product.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\core\NewFolder\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
