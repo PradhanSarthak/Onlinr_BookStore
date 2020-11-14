@@ -1,30 +1,22 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { RouterModule } from '@angular/router';
-import { TestErrorComponent } from './test-error/test-error.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { ServerErrorComponent } from './server-error/server-error.component';
-import { ToastrModule } from 'ngx-toastr';
-import { BreadcrumbModule } from 'xng-breadcrumb';
-import { SectionHeaderComponent } from './section-header/section-header.component';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { BusyService } from '../services/busy.service';
+import { Injectable } from '@angular/core';
+import { delay, finalize } from 'rxjs/operators';
 
+@Injectable()
+export class LoadingInterceptor implements HttpInterceptor {
+  constructor(private busyService: BusyService) { }
 
-
-@NgModule({
-  declarations: [NavBarComponent, TestErrorComponent, NotFoundComponent, ServerErrorComponent, SectionHeaderComponent],
-  imports: [
-    CommonModule,
-    RouterModule,
-    BreadcrumbModule,
-    ToastrModule.forRoot({
-      positionClass: 'toast-bottom-right',
-      preventDuplicates: true
-    })
-  ],
-  exports: [
-    NavBarComponent,
-    SectionHeaderComponent
-  ]
-})
-export class CoreModule { }
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    if (!req.url.includes('emailexists')) {
+      this.busyService.busy();
+    }
+    return next.handle(req).pipe(
+      delay(1000),
+      finalize(() => {
+        this.busyService.idle();
+      })
+    );
+  }
+}
