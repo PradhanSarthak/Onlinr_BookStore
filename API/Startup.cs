@@ -3,6 +3,7 @@ using API.Data;
 using API.Extensions;
 using API.Helpers;
 using API.Infrastructure.Data;
+using API.Infrastructure.Identity;
 using API.Middleware;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
@@ -30,7 +31,12 @@ namespace API
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddControllers();
             services.AddDbContext<StoreContext>(x =>
-                x.UseSqlServer(_config.GetConnectionString("BookstoreContext")));
+                x.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<AppIdentityDbContext>(x =>
+            {
+                x.UseSqlServer(_config.GetConnectionString("IdentityConnection"));
+            });
 
             services.AddSingleton<IConnectionMultiplexer>(c => {
                 var configuration = ConfigurationOptions.Parse(_config
@@ -39,6 +45,7 @@ namespace API
             });
 
             services.AddApplicationServices();
+            services.AddIdentityServices(_config);
             services.AddSwaggerDocumentation();
             services.AddCors(opt =>
             {
@@ -62,6 +69,7 @@ namespace API
 
             app.UseCors("CorsPolicy");
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseSwaggerDocumention();
