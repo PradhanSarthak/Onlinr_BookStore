@@ -1,16 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
 
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+.xng-breadcrumb-root {
+  padding: 8px 16px;
+  display: inline;
+  border-radius: 0;
 }
 
-code {
-  color: #e01a76;
+label.xng-breadcrumb-trail {
+  margin-bottom: 0;
+  color: orange;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.xng-breadcrumb-separator {
+  padding: 0 0;
 }

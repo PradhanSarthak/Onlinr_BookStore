@@ -43,6 +43,10 @@
     <TypeScriptCompile Remove="ClientApp\src\app\components\paging-header\paging-header.component.spec.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\components\paging-header\paging-header.component.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\core\core.module.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\core\interceptors\loading.interceptor.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\core\section-header\section-header.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\core\section-header\section-header.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\core\services\busy.service.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\shared\shared.module.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\shop\product-details\product-details.component.spec.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\shop\product-details\product-details.component.ts" />
