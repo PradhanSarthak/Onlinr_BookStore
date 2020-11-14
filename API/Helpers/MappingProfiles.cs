@@ -1,4 +1,6 @@
-﻿using API.Core.Entity.Identity;
+﻿using API.Controllers;
+using API.Core.Entity;
+using API.Core.Entity.Identity;
 using API.Dtos;
 using API.Entity;
 using AutoMapper;
@@ -9,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace API.Helpers
 {
-    public class MappingProfiles : Profile
+     public class MappingProfiles : Profile
     {
         public MappingProfiles()
         {
@@ -18,6 +20,8 @@ namespace API.Helpers
                 .ForMember(d => d.ProductType, o => o.MapFrom(s => s.ProductType.Name))
                 .ForMember(d => d.PictureUrl, o => o.MapFrom<ProductUrlResolver>());
             CreateMap<Address, AddressDto>().ReverseMap();
+            CreateMap<CustomerBasketDto, CustomerBasket>();
+            CreateMap<BasketItemDto, BasketItem>();
         }
     }
 }
